@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model Wedding
+
+<div class="row">
+    <div class="col-sm-8 mt-2 mb-4">
+        <h3 class="text-primary">@Model.WedderOne and @Model.WedderTwo's Wedding!</h3>
+    </div>
+    <div class="col-sm-4 mt-2 mb-4 text-right">
+        <a href="/dashboard">Dashboard</a> | <a href="/logout">Log Out</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Date: @Model.Date.Value.ToString("MMM dd yyyy")</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        <h4>Guests Attending</h4>
+        <ul>
+            @foreach(RSVP guest in Model.GuestsAttending)
+            {
+                <li>@guest.Guest.FirstName @guest.Guest.LastName</li>
+            }
+        </ul>
+    </div>
+</div>

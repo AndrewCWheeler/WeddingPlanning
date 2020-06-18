@@ -1,0 +1,55 @@
+@{
+    ViewData["Title"] = "Update Wedding";
+}
+@model Wedding
+
+<div class="row">
+    <div class="col-sm-2 mt-2 mb-4 d-none d-sm-block"></div>
+    <div class="col-sm-10 mt-2 mb-4">
+        <h2 class="text-primary">Edit Your Wedding</h2>
+    </div>
+</div>
+<div class="row my-3">
+    <div class="col-sm-8">
+
+        <form class="form" action="/weddings/@Model.WeddingId/update" method="post">
+            <div class="form-group row">
+                <label asp-for="WedderOne" class="col-form-label col-sm-3 d-none d-sm-block">Wedder One</label>
+                <div class="col-sm-9">
+                    <input asp-for="WedderOne" class="form-control form-control-lg" placeholder="Wedder One">
+                    <span class="text-danger" asp-validation-for="WedderOne"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="WedderTwo" class="col-form-label col-sm-3 d-none d-sm-block">Wedder Two</label>
+                <div class="col-sm-9">
+                    <input asp-for="WedderTwo" class="form-control form-control-lg" placeholder="Wedder Two">
+                    <span class="text-danger" asp-validation-for="WedderTwo"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Date" class="col-form-label col-sm-3 d-none d-sm-block">Date</label>
+                <div class="col-sm-9">
+                    <input asp-for="Date" class="form-control form-control-lg" placeholder="Date">
+                    <span class="text-danger" asp-validation-for="Date"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Address" class="col-form-label col-sm-3 d-none d-sm-block">Address</label>
+                <div class="col-sm-9">
+                    <input asp-for="Address" class="form-control form-control-lg" placeholder="Address">
+                    <span class="text-danger" asp-validation-for="Address"></span>
+                </div>
+            </div>
+            <div class="mt-4 form-group row">
+                <div class="col-form-label col-sm-3 d-none d-sm-block"></div>
+                <div class="col-sm-9">
+                    <button class="btn btn-outline-primary btn-lg btn-block">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model LogRegWrapper
+
+<div class="row my-3">
+    <div class="col-sm-5 mt-5 mb-3">
+        <h1 class="text-primary text-center mb-4">Sign-Up!</h1>
+
+        <form class="form" asp-action="Registering" asp-controller="Home" method="POST">
+            
+            <div class="form-group row">
+                <label for="Register.FirstName" class="col-form-label col-sm-3 d-none d-sm-block">First Name</label>
+                <div class="col-sm-9">
+                    <input asp-for="Register.FirstName" class="form-control form-control-lg" placeholder="First Name">
+                    <span class="text-danger" asp-validation-for="Register.FirstName"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="Register.LastName" class="col-form-label col-sm-3 d-none d-sm-block">Last Name</label>
+                <div class="col-sm-9">
+                    <input asp-for="Register.LastName" class="form-control form-control-lg" placeholder="Last Name">
+                    <span class="text-danger" asp-validation-for="Register.LastName"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="Register.Email" class="col-form-label col-sm-3 d-none d-sm-block">Email</label>
+                <div class="col-sm-9">
+                    <input asp-for="Register.Email" class="form-control form-control-lg" placeholder="Email">
+                    <span class="text-danger" asp-validation-for="Register.Email"></span>
+                </div>    
+            </div>
+
+            <div class="form-group row">
+                <label for="Register.Password" class="col-form-label col-sm-3 d-none d-sm-block">Password</label>
+                <div class="col-sm-9">
+                    <input asp-for="Register.Password" class="form-control form-control-lg" placeholder="Password">
+                    <span class="text-danger" asp-validation-for="Register.Password"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="Register.Confirm" class="col-form-label col-sm-3 d-none d-sm-block">Confirm</label>
+                <div class="col-sm-9">
+                    <input asp-for="Register.Confirm" class="form-control form-control-lg" placeholder="Confirm Password">
+                    <span class="text-danger" asp-validation-for="Register.Confirm"></span>
+                </div>
+            </div>
+
+            <div class="mt-4 form-group row">
+                <div class="col-form-label col-sm-3 d-none d-sm-block"></div>
+                <div class="col-sm-9">
+                    <button class="btn btn-outline-primary btn-lg btn-block">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5 mt-5 mb-3">
+        <h1 class="text-primary text-center mb-4">Login</h1>
+        
+        <form class="form" asp-action="Logging" asp-controller="Home" method="POST">
+            
+            <div class="form-group row">
+                <label for="Login.Email" class="col-form-label col-sm-3 d-none d-sm-block">Email</label>
+                <div class="col-sm-9">
+                    <input asp-for="Login.Email" class="form-control form-control-lg" placeholder="Email">
+                    <span class="text-danger" asp-validation-for="Login.Email"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="Login.Password" class="col-form-label col-sm-3 d-none d-sm-block">Password</label>
+                <div class="col-sm-9">
+                    <input asp-for="Login.Password" class="form-control form-control-lg" placeholder="Password">
+                    <span class="text-danger" asp-validation-for="Login.Password"></span>
+                </div>
+            </div>
+
+            <div class="mt-4 form-group row">
+                <div class="col-form-label col-sm-3 d-none d-sm-block"></div>
+                <div class="col-sm-9">
+                    <button class="btn btn-outline-primary btn-lg btn-block">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

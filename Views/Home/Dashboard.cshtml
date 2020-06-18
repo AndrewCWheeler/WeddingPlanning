@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+@model DashboardWrapper
+
+<div class="row">
+    <div class="col-sm-8 mt-2 mb-4">
+        <h2 class="text-primary">Welcome to the Wedding Planner</h2>
+    </div>
+    <div class="col-sm-4">
+        <a href="/weddings/new" class="btn btn-outline-primary btn-lg float-right">New Wedding</a>
+    </div>
+</div>
+<table class="my-3 table table-striped">
+    <thead>
+        <th>Wedding</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        @foreach (Wedding wedding in Model.AllWeddings) 
+        {
+            <tr>
+                <td><a href="/Weddings/@wedding.WeddingId">@wedding.WedderOne & @wedding.WedderTwo</a></td>
+                <td>@wedding.Date.Value.ToString("MMM dd yyyy")</td>
+                <td>@wedding.GuestsAttending.Count</td>
+                <td>
+                    @if(wedding.UserId==Model.LoggedUser.UserId)
+                    {
+                        <a class="btn btn-primary" href="/Weddings/@wedding.WeddingId/Edit">Edit</a> <a class="btn btn-danger" href="/Weddings/@wedding.WeddingId/Delete">Delete</a>
+                    }
+                    else if(wedding.GuestsAttending.Any(r => r.UserId == Model.LoggedUser.UserId))
+                    {
+                        <a class="btn btn-primary" href="/Weddings/@wedding.WeddingId/unRsvp">Un-RSVP</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary" href="/Weddings/@wedding.WeddingId/Rsvp">RSVP</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
